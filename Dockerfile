@@ -1,3 +1,7 @@
-FROM tomcat:9-alpine
-COPY target/spring3-mvc-maven-xml-hello-world-1.2.war /usr/local/tomcat/webapps/spring3.war
+FROM jenkins/jenkins:lts
+USER root
+RUN apt update -y && \
+apt install -y python3-pip
+RUN pip3 install awscli --upgrade
+USER Jenkins
 
